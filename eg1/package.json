@@ -1,0 +1,14 @@
+{
+  "name": "eg1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "scss": "node-sass  sass/sass.scss -o css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.6.1"
+  }
+}

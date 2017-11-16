@@ -1,0 +1,115 @@
+// import in order
+// this is how
+@import "reset";
+@import "variables";
+@import "mixins";
+
+#main-nav{
+  background: $deepBlue;
+  ul{
+    width: 100%;
+    @include clearfix;
+  }
+  li{
+    float: left;
+    // math in sass is done in brackets ()
+    // devide the full screen 100% by
+    width: (100%/6);
+    // widhth at wich to change
+    @include mQ(600px){
+      // this is where you add to @ content
+      // that will be replaced in the mixin
+      width: 100%;
+    };
+  }
+  a{
+    color: $offWhite;
+    text-decoration: none;
+    padding: 16px;
+    display: block;
+    text-align: center;
+    // add a pseudo class to the a tags of the main nav
+    // with &:hover
+    &:hover{
+
+      // find a list of color functions here
+      // http://sass-lang.com/documentation/Sass/Script/Functions.html#lighten-instance_method
+      // amount is an integer
+      background:  lighten($deepBlue, 4);
+    }
+  }
+
+
+
+  }
+
+// clearfix
+#main-nav ul:after{
+  content:"";
+  display: block;
+  clear: both;
+}
+
+
+
+section h1{
+  font-size: $sectionHeading;
+  color: $deepBlue;
+  text-align: center;
+}
+
+
+// how to use a mixing
+
+.lead-banner{
+  @include banner;
+  text-align: right;
+}
+
+.lessons-banner{
+  @include banner;
+  li{
+    text-transform: uppercase;
+    font-size: 20px;
+    max-width: 500px;
+    margin: 60px 0 ;
+  }
+}
+
+#services{
+  margin-bottom: 60px;
+  li{
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+    // more math
+    width: (100%/3);
+
+  }
+  img{
+    width: 60%;
+    margin: 20px 20%;
+
+  }
+  a{
+    text-decoration: none;
+    color: $deepBlue;
+    font-weight: bold;
+    &:hover{
+      color: complement($deepBlue);
+    }
+
+  }
+  ul{
+
+    @include clearfix;
+  }
+}
+
+#projects li{
+  // remember to pass in the paramaters colums and margins
+  @include grid(4,2%) ;
+  img{
+    width: 100%;
+  }
+}
